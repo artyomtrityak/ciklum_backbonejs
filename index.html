@@ -9,8 +9,8 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/project.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/project.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -68,11 +68,11 @@
         </div>
 
         <div class="row">
-            <div class="span5" style="height:400px">
+            <div class="span5" id="ciklumers-list-container" style="height:400px">
 
                 <div class="row ciklum-user-list-element">
                     <div class="span1">
-                        <img src="http://placehold.it/65x65" alt="">
+                        <img src="/static/img/65x65.gif" alt="">
                     </div>
                     <div class="span4" style="margin-left:10px">
                         <div style="font-size:20px"><a href="#user-details/12225">Artyom Trityak</a></div>
@@ -91,7 +91,7 @@
             <div class="span7" id="ciklum-user-details">
                 <div class="row" id="ciklum-user-details-view">
                     <div class="span2">
-                        <a href="#" class="thumbnail"><img src="http://placehold.it/140x120" alt=""></a>
+                        <a href="#" class="thumbnail"><img src="/static/img/140x120.gif" alt=""></a>
                     </div>
                     <div class="span5">
                         <div>
@@ -178,7 +178,7 @@
                     </div>
 
                     <div class="span2">
-                        <a href="#" class="thumbnail"><img src="http://placehold.it/140x120" alt=""></a>
+                        <a href="#" class="thumbnail"><img src="/static/img/140x120.gif" alt=""></a>
                     </div>
                     <div class="span5">
                         <div>
@@ -261,11 +261,11 @@
 
     </div> <!-- /container -->
 
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/lib/jquery.js"></script>
-    <script src="js/lib/bootstrap.js"></script>
-    <script src="js/test.js"></script>
+    <script type="text/template" id="ciklum-user-short-tpl">
 
+    </script>
+
+    <script data-main="/static/js/index" src="/static/js/lib/require.js"></script>
   </body>
 </html>
 
