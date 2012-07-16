@@ -3,14 +3,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Ciklumers - be in touch | BackboneJS Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
-      <link href="css/project.css" rel="stylesheet">
+    <link href="css/project.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -18,7 +18,8 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+      <link rel="shortcut icon" href="http://backbonejs.org/docs/images/favicon.ico">
+
   </head>
 
   <body>
@@ -31,43 +32,235 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">
-              Who found my passport?
+          <a class="brand" href="#" style="color: #FFF">
+              Ciklumers
           </a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#" class="navbar-fix">Home</a></li>
-              <li><a href="#about" class="navbar-fix">Lost</a></li>
-              <li><a href="#contact" class="navbar-fix">Found</a></li>
+              <li class="active"><a href="#">All</a></li>
+               <li ><a href="#">Developers</a></li>
+                <li ><a href="#">QA</a></li>
+                <li ><a href="#">Team Leads</a></li>
+                <li ><a href="#">Managers</a></li>
             </ul>
+            <form class="navbar-form pull-right">
+                <input type="text" class="search-query" placeholder="Name, project, skills...">
+            </form>
           </div><!--/.nav-collapse -->
+
         </div>
       </div>
     </div>
 
     <div class="container">
 
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+        <div class="well">
+            <div class="row">
+                <div class="span9">
+                    <h1>Ciklum people database. Be in touch!</h1>
+                </div>
+                <div style="float: left; margin-left: 170px">
+                    <button class="btn btn-large btn-primary" type="button">
+                        Add new
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span5" style="height:400px">
+
+                <div class="row ciklum-user-list-element">
+                    <div class="span1">
+                        <img src="http://placehold.it/65x65" alt="">
+                    </div>
+                    <div class="span4" style="margin-left:10px">
+                        <div style="font-size:20px"><a href="#user-details/12225">Artyom Trityak</a></div>
+                        <div style="margin-top:10px;">
+                            Python Team Lead at <a href="#project/Connex.io">Connex.io</a>
+                        </div>
+                        <div>
+                            <a href="#skill/JavaScript"><span class="label label-info">JavaScript</span></a>
+                            <a href="#skill/Python"><span class="label label-info">Python</span></a>
+                            <a href="#skill/PHP"><span class="label label-info">PHP</span></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="span7" id="ciklum-user-details">
+                <div class="row" id="ciklum-user-details-view">
+                    <div class="span2">
+                        <a href="#" class="thumbnail"><img src="http://placehold.it/140x120" alt=""></a>
+                    </div>
+                    <div class="span5">
+                        <div>
+                            <span class="lead">Artyom Trityak</span>
+                            <span class="pull-right">
+                                <a class="btn btn-primary" href="#">
+                                    <i class="icon-pencil icon-white"></i> Edit
+                                </a>
+
+                                <a class="btn btn-danger" href="#">
+                                    <i class="icon-remove icon-white"></i> Remove
+                                </a>
+                            </span>
+                        </div>
+                        <div style="margin-top: 5px;">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        Project
+                                    </td>
+                                    <td>
+                                        <a href="#project/Connex.io">Connex.io</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Position
+                                    </td>
+                                    <td>
+                                        Python Team Lead
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Email
+                                    </td>
+                                    <td>
+                                        art.trityak@gmail.com
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        City
+                                    </td>
+                                    <td>
+                                        Odessa
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Mobile
+                                    </td>
+                                    <td>
+                                        +38(050)611-47-89
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Skype
+                                    </td>
+                                    <td>
+                                        art.trityak
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Skills
+                                    </td>
+                                    <td>
+                                        <a href="#skill/JavaScript"><span class="label label-info">JavaScript</span></a>
+                                        <a href="#skill/Python"><span class="label label-info">Python</span></a>
+                                        <a href="#skill/PHP"><span class="label label-info">PHP</span></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="ciklum-user-details-edit">
+                    <div class="alert alert-error">
+                        <button class="close" data-dismiss="alert">×</button>
+                        <strong>Validation failed!</strong> Please check fields.
+                    </div>
+
+                    <div class="span2">
+                        <a href="#" class="thumbnail"><img src="http://placehold.it/140x120" alt=""></a>
+                    </div>
+                    <div class="span5">
+                        <div>
+                            <span class="lead"><input type=text value="Artyom Trityak"></span>
+                            <span class="pull-right">
+                                <a class="btn btn-success" href="#">
+                                    <i class="icon-ok icon-white"></i> Save
+                                </a>
+
+                                <a class="btn btn-danger" href="#">
+                                    <i class="icon-remove icon-white"></i> Remove
+                                </a>
+                            </span>
+                        </div>
+                        <div style="margin-top: 5px;">
+                            <table class="table">
+                                <tr>
+                                    <td class="ciklum-user-details-edit-label">
+                                        Project
+                                    </td>
+                                    <td>
+                                        <input type=text value="Connex.io" class="ciklum-user-details-edit-input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ciklum-user-details-edit-label">
+                                        Position
+                                    </td>
+                                    <td>
+                                        <input type=text value="Python Team Lead" class="ciklum-user-details-edit-input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ciklum-user-details-edit-label">
+                                        Email
+                                    </td>
+                                    <td>
+                                        <input type=text value="art.trityak@gmail.com" class="ciklum-user-details-edit-input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ciklum-user-details-edit-label">
+                                        City
+                                    </td>
+                                    <td>
+                                        <input type=text value="Odessa" class="ciklum-user-details-edit-input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ciklum-user-details-edit-label">
+                                        Mobile
+                                    </td>
+                                    <td>
+                                        <input type=text value="+38050611779" class="ciklum-user-details-edit-input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ciklum-user-details-edit-label">
+                                        Skype
+                                    </td>
+                                    <td>
+                                        <input type=text value="art.trityak" class="ciklum-user-details-edit-input">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ciklum-user-details-edit-label">
+                                        Skills
+                                    </td>
+                                    <td>
+                                        <input type=text value="JavaScript, Python, PHP" class="ciklum-user-details-edit-input">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
     </div> <!-- /container -->
 
-    <div class="modal hide" id="myModal">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h3>Modal header</h3>
-        </div>
-        <div class="modal-body">
-            <p>One fine body…</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="btn" data-dismiss="modal">Close</a>
-            <a href="#" class="btn btn-primary">Save changes</a>
-        </div>
-    </div>
-
-    <!-- Le javascript
-    ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/bootstrap.js"></script>

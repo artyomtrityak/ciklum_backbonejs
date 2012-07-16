@@ -2,6 +2,13 @@ body {
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
 
-.navbar-fix {
-    padding: 10px !important;
+.ciklum-user-list-element {
+    cursor: pointer;
+}
+.ciklum-user-details-edit-label {
+    vertical-align: middle !important;
+}
+
+.ciklum-user-details-edit-input {
+    margin-bottom: 0 !important;
 }
