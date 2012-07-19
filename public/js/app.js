@@ -1,4 +1,4 @@
-define(["lib/backbone", "ciklumers/list_view"], function(bb, ciklumers) {
+define(["ciklumers/list_view"], function(ciklumers) {
     return Backbone.Router.extend({
         routes: {
             "test/:id": "test"

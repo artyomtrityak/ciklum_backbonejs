@@ -1,5 +1,8 @@
 import tornado.ioloop
 import tornado.web
+import simplejson
+
+import users
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -7,7 +10,8 @@ class MainHandler(tornado.web.RequestHandler):
 
 class CiklumersList(tornado.web.RequestHandler):
     def get(self):
-        self.write('ok')
+        new_users = USERS.generate_users(10)
+        self.write(simplejson.dumps(new_users.values()))
 
 class Ciklumer(tornado.web.RequestHandler):
     def get(self):
@@ -23,6 +27,8 @@ class Ciklumer(tornado.web.RequestHandler):
         pass
 
 if __name__ == "__main__":
+    USERS = users.Users()
+
     application = tornado.web.Application([
         #Just return index page
         (r"/", MainHandler),
@@ -35,5 +41,6 @@ if __name__ == "__main__":
         #Static files processing
         (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": "./public"}),
     ])
+
     application.listen(8888)
     tornado.ioloop.IOLoop.instance().start()
