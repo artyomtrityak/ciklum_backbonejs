@@ -1,6 +1,6 @@
 require.config({
     baseUrl: '/static/js/',
-    urlArgs: 'v0.1',
+    urlArgs: 'v0.2',
     waitSeconds: 20,
 
     paths: {
@@ -17,7 +17,7 @@ require.config({
     }
 });
 
-requirejs(['app'/*, 'text!templates/ciklumer.html'*/], function(App) {
+requirejs(['app'], function(App) {
     $(function() {
         new App();
         Backbone.history.start();

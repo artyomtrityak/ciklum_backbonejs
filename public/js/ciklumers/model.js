@@ -4,11 +4,12 @@ define(function() {
         defaults: {
             name: '',
             project: '',
-            skills: []
+            skills: [],
+            rendered: false
         },
 
         initialize: function() {
-            console.log('init model');
+            //Something init can be done here
         }
     });
 });

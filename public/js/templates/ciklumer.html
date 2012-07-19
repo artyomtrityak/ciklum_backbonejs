@@ -1,16 +1,14 @@
 <div class="row ciklum-user-list-element">
     <div class="span1">
-        <img src="/static/img/65x65.gif" alt="">
+        <img src="<%=avatar%>" alt="" class="ciklum-user-list-element-avatar">
     </div>
     <div class="span4" style="margin-left:10px">
-        <div style="font-size:20px"><a href="#user-details/12225">Artyom Trityak</a></div>
-        <div style="margin-top:10px;">
-            Python Team Lead at <a href="#project/Connex.io">Connex.io</a>
-        </div>
+        <div class="load ciklum-user-list-element-name"><a href="#user-details/<%=id%>"><%=name%></a></div>
+        <div><%=position%> at <a href="#project/Connex.io"><%=project%></a></div>
         <div>
-            <a href="#skill/JavaScript"><span class="label label-info">JavaScript</span></a>
-            <a href="#skill/Python"><span class="label label-info">Python</span></a>
-            <a href="#skill/PHP"><span class="label label-info">PHP</span></a>
+            <% _.each(skills, function(skill) {%>
+                <a href="#<%=skill%>"><span class="label label-info"><%=skill%></span></a>
+            <% }); %>
         </div>
     </div>
 </div>

@@ -3,18 +3,29 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
 
         el: $('#ciklumers-list-container'),
 
+        /*not backbone vars*/
+        page: 0,
+
         initialize: function() {
-            console.log('init list v');
             this.collection = new Collection();
-            this.bind();
+            this.get_next_page();
         },
 
-        bind: function() {
-            this.collection.on('add', this.render, this);
+        get_next_page: function() {
+            this.collection.fetch({
+                add: true,
+                data: {page: this.page},
+                success: _.bind(this.render, this)
+            });
         },
 
         render: function() {
-            console.log(arguments);
+            var ciklumers_part = $('<div />');
+            _.each(this.collection.where({rendered: false}), function(model) {
+                ciklumers_part.append(new Ciklumer({model: model}).render().$el);
+            },this);
+            this.$el.append(ciklumers_part);
+            this.page++;
         }
     });
 });

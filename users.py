@@ -6,7 +6,6 @@ class Users(object):
 
     avatars = [
         'http://level2.ciklum.net/images/contacts/Artem_Trityak_4156.jpg',
-        'http://level2.ciklum.net/images/contacts/Razvalinov_Alexander.jpg',
         'http://level2.ciklum.net/images/contacts/Yuri_Sklyar_4157.jpg',
         'http://level2.ciklum.net/images/contacts/Evgeny_Savitsky_4353.jpg',
         'http://level2.ciklum.net/images/contacts/Oleg_Zhavoronkin.jpg',
