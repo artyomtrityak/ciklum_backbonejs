@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="678a0b86-f459-4a63-a9e7-261fe061b246" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/search/model.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/search/view.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/project.css" afterPath="$PROJECT_DIR$/public/css/project.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/ciklumers/collection.js" afterPath="$PROJECT_DIR$/public/js/ciklumers/collection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/ciklumers/list_view.js" afterPath="$PROJECT_DIR$/public/js/ciklumers/list_view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/ciklumers/model.js" afterPath="$PROJECT_DIR$/public/js/ciklumers/model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/ciklumers/view.js" afterPath="$PROJECT_DIR$/public/js/ciklumers/view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/index.js" afterPath="$PROJECT_DIR$/public/js/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/templates/ciklumer.html" afterPath="$PROJECT_DIR$/public/js/templates/ciklumer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users.py" afterPath="$PROJECT_DIR$/users.py" />
     </list>
     <ignored path="ciklum_backbonejs.iws" />
@@ -47,7 +39,7 @@
       <file leaf-file-name="ciklumer.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/templates/ciklumer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="29" selection-start="96" selection-end="96" vertical-scroll-proportion="-1.25">
+            <state line="2" column="114" selection-start="177" selection-end="181" vertical-scroll-proportion="-1.25">
               <folding />
             </state>
           </provider>
@@ -89,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="model.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/ciklumers/model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="28" selection-start="248" selection-end="248" vertical-scroll-proportion="0.29100528">
+            <state line="11" column="28" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,7 +93,7 @@
       <file leaf-file-name="server.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="11" selection-start="751" selection-end="761" vertical-scroll-proportion="0.0">
+            <state line="13" column="47" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -109,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="users.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/users.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="74" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0">
+            <state line="18" column="79" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.31746033">
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -146,7 +138,6 @@
         <option value="$PROJECT_DIR$/public/js/templates/ciklumer_details.html" />
         <option value="$PROJECT_DIR$/public/js/templates/ciklumer_details_edit.html" />
         <option value="$PROJECT_DIR$/public/js/app.js" />
-        <option value="$PROJECT_DIR$/server.py" />
         <option value="$PROJECT_DIR$/public/js/index.js" />
         <option value="$PROJECT_DIR$/public/js/ciklumers/view.js" />
         <option value="$PROJECT_DIR$/public/js/ciklumers/collection.js" />
@@ -155,8 +146,9 @@
         <option value="$PROJECT_DIR$/public/js/ciklumers/list_view.js" />
         <option value="$PROJECT_DIR$/public/js/search/view.js" />
         <option value="$PROJECT_DIR$/public/js/search/model.js" />
-        <option value="$PROJECT_DIR$/public/js/templates/ciklumer.html" />
         <option value="$PROJECT_DIR$/public/css/project.css" />
+        <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/public/js/templates/ciklumer.html" />
         <option value="$PROJECT_DIR$/users.py" />
       </list>
     </option>
@@ -411,7 +403,11 @@
       <created>1342727682198</created>
       <updated>1342727682198</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="next evening with">
+      <created>1342731352588</created>
+      <updated>1342731352588</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -475,7 +471,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="ivar ret" />
+    <option name="LAST_COMMIT_MESSAGE" value="next evening with" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -492,6 +488,7 @@
     <MESSAGE value="server and basic backbone app" />
     <MESSAGE value="Add templates" />
     <MESSAGE value="ivar ret" />
+    <MESSAGE value="next evening with" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -527,13 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2319" selection-end="2319" vertical-scroll-proportion="-8.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/ciklumers/collection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="26" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
@@ -545,15 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="24" selection-start="869" selection-end="869" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="11" selection-start="751" selection-end="761" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -571,33 +552,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="2" selection-start="5345" selection-end="5358" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/templates/ciklumer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="29" selection-start="96" selection-end="96" vertical-scroll-proportion="-1.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/project.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="74" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -610,8 +568,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/ciklumers/model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="28" selection-start="248" selection-end="248" vertical-scroll-proportion="0.29100528">
+        <state line="11" column="28" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="0" selection-start="2319" selection-end="2319" vertical-scroll-proportion="-8.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/templates/ciklumer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="114" selection-start="177" selection-end="181" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="47" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="351" column="2" selection-start="5345" selection-end="5358" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="79" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.31746033">
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

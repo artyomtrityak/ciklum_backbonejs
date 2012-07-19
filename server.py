@@ -10,8 +10,8 @@ class MainHandler(tornado.web.RequestHandler):
 
 class CiklumersList(tornado.web.RequestHandler):
     def get(self):
-        new_users = USERS.generate_users(10)
-        self.write(simplejson.dumps(new_users.values()))
+        new_users = USERS.generate_users(10).values()
+        self.write(simplejson.dumps(new_users))
 
 class Ciklumer(tornado.web.RequestHandler):
     def get(self):

@@ -1,13 +1,13 @@
 <div class="row ciklum-user-list-element">
     <div class="span1">
-        <img src="<%=avatar%>" alt="" class="ciklum-user-list-element-avatar">
+        <a href="#user-details/<%=id%>"><img src="<%=avatar%>" alt="" class="ciklum-user-list-element-avatar"></a>
     </div>
     <div class="span4" style="margin-left:10px">
         <div class="load ciklum-user-list-element-name"><a href="#user-details/<%=id%>"><%=name%></a></div>
-        <div><%=position%> at <a href="#project/Connex.io"><%=project%></a></div>
+        <div><%=position%> at <a href="#project/<%=project%>"><%=project%></a></div>
         <div>
             <% _.each(skills, function(skill) {%>
-                <a href="#<%=skill%>"><span class="label label-info"><%=skill%></span></a>
+                <a href="#skill/<%=skill%>"><span class="label label-info"><%=skill%></span></a>
             <% }); %>
         </div>
     </div>
