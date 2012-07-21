@@ -19,7 +19,8 @@ require.config({
 
 requirejs(['app'], function(App) {
     $(function() {
-        new App();
+        var app = new App();
         Backbone.history.start();
+        app.navigate('role/All', {trigger: true});
     });
 });

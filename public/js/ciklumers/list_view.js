@@ -2,7 +2,11 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
     return Backbone.View.extend({
         el: $('#ciklumers-list-container'),
 
-        page: 0,
+        options: {
+            page: 0,
+            search: '',
+            role: ''
+        },
 
         events: {
             'scroll': "lazy_loader"
@@ -11,13 +15,18 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
         initialize: function() {
             this.set_list_height();
             this.collection = new Collection();
-            this.get_next_page();
+            //this.get_next_page();
         },
 
-        get_next_page: function() {
+        get_next_page: function(options) {
+            options = options || {};
+            this.options = _.extend({
+                search: this.options.search,
+                role: this.options.role
+            }, options);
             this.collection.fetch({
                 add: true,
-                data: {page: this.page},
+                data: this.options,
                 success: _.bind(this.render, this)
             });
         },
@@ -28,7 +37,12 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
                 ciklumers_part.append(new Ciklumer({model: model}).render().$el);
             },this);
             this.$el.append(ciklumers_part);
-            this.page++;
+            this.options.page++;
+        },
+
+        reset: function() {
+            this.options.page = 0;
+            this.$el.html('');
         },
 
         /**

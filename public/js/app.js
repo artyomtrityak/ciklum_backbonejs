@@ -1,16 +1,19 @@
-define(["ciklumers/list_view"], function(ciklumers) {
+define(["ciklumers/list_view", 'navigation'], function(ciklumers, Navigation) {
     return Backbone.Router.extend({
         routes: {
-            "test/:id": "test"
+            "role/:role": "filter_role"
         },
 
         initialize: function() {
-            console.log('init router');
             this.ciklumers = new ciklumers();
+            this.navigation = new Navigation();
         },
 
-        test: function() {}
-
+        filter_role: function(role) {
+            this.ciklumers.reset();
+            this.ciklumers.get_next_page({role: role});
+            this.navigation.activate(role);
+        }
     });
 });
 
