@@ -6,18 +6,16 @@ body {
 
 /*Uses list*/
 #ciklumers-list-container {
-    margin-top: -20px;
     overflow: auto;
 }
 .ciklum-user-list-element {
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .ciklum-user-list-element-name {
     font-size: 20px;
     margin-bottom: 10px !important;
 }
 .ciklum-user-list-element-avatar {
-
     height: 65px;
 }
 
@@ -28,7 +26,6 @@ body {
 .ciklum-user-details-edit-input {
     margin-bottom: 0 !important;
 }
-
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
