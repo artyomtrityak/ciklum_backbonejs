@@ -40,7 +40,7 @@ class Users(object):
         'Vertica',
 
     ]
-    skills = ['PHP', "Python", 'JavaScript', 'Java', 'C++', 'Objective-C']
+    skills = ["Python", 'JavaScript', 'Java', 'C++', 'Objective-C', 'C#', 'PHP', 'Erlang']
     positions = ['Developer', 'Team Lead', 'QA', 'Manager', ]
 
     def generate_users(self, count):
