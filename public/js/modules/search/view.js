@@ -24,6 +24,11 @@ define(['./model'], function(Model) {
                     this.trigger('search', search_val);
                 }
             }, this), 500);
+        },
+
+        make_search: function(search) {
+            this.$el.val(search);
+            this.search();
         }
     });
 });
