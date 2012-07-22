@@ -61,7 +61,7 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
          * Also check window resize and reset height is needed
          */
         set_list_height: function() {
-            var height = $(window).height() - 140;
+            var height = $(window).height() - 160;
             this.$el.height(height);
         }
     });

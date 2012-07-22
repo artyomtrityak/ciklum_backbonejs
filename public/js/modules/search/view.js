@@ -1,0 +1,29 @@
+define(['./model'], function(Model) {
+    return Backbone.View.extend({
+        el: $('#ciklumers-search'),
+
+        search_timer: false,
+
+        events: {
+            "keyup": "search"
+        },
+
+        initialize: function() {
+            this.model = new Model();
+        },
+
+        search: function() {
+            if (this.timer_search) {
+                clearTimeout(this.timer_search);
+            }
+            this.timer_search = setTimeout(_.bind(function() {
+                this.timer_search = false;
+                var search_val = this.$el.val();
+                if (this.model.get('search') != search_val) {
+                    this.model.set({search: search_val}, {silent: true});
+                    this.trigger('search', search_val);
+                }
+            }, this), 500);
+        }
+    });
+});

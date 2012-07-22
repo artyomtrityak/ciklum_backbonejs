@@ -5,6 +5,9 @@ define(function() {
         activate: function(name) {
             name = name.replace(/ /g, '');
             name = name.toLowerCase();
+
+            console.log(name);
+
             this.$el.find('.nav > li').removeClass('active');
             this.$el.find('.nav > .nav-' + name).addClass('active');
         }
