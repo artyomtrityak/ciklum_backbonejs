@@ -1,10 +1,11 @@
-define(["modules/ciklumers/list_view", 'modules/navigation', 'modules/search/view'],
+define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/view'],
     function(ciklumers, Navigation, Search) {
 
     return Backbone.Router.extend({
         routes: {
-            "role/:role": "filter_role",
-            "project/:project": "filter_project"
+            'role/:role': 'filter_role',
+            'project/:project': 'filter_project',
+            'skill/:skill': 'filter_skill'
         },
 
         initialize: function() {
@@ -32,6 +33,10 @@ define(["modules/ciklumers/list_view", 'modules/navigation', 'modules/search/vie
 
         filter_project: function(project) {
             this.search.make_search(project);
+        },
+
+        filter_skill: function(skill) {
+            this.search.make_search(skill);
         }
     });
 });

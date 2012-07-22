@@ -9,9 +9,15 @@ class MainHandler(tornado.web.RequestHandler):
         self.write(open("index.html").read())
 
 class CiklumersList(tornado.web.RequestHandler):
+    count_per_request = 20;
+
     def get(self):
-        new_users = USERS.generate_users(10).values()
-        self.write(simplejson.dumps(new_users))
+        role = self.get_argument('role', None)
+        search = self.get_argument('search', None)
+        page_num = int(self.get_argument('page', 0))
+
+        result_users = USERS.get_users(page_num, self.count_per_request, role, search)
+        self.write(simplejson.dumps(result_users))
 
 class Ciklumer(tornado.web.RequestHandler):
     def get(self):
@@ -28,6 +34,7 @@ class Ciklumer(tornado.web.RequestHandler):
 
 if __name__ == "__main__":
     USERS = users.Users()
+    USERS.generate_users(100)
 
     application = tornado.web.Application([
         #Just return index page

@@ -51,6 +51,19 @@ class Users(object):
         self.users.update(users)
         return users
 
+    def get_users(self, page_num, contacts_per_request, role, search):
+        start = page_num * contacts_per_request
+        result_users = []
+        for user in self.users.values()[start:]:
+            if role and role != user['position'] and role != 'All':
+                continue
+            if search and search not in user.values() and search not in user['skills']:
+                continue
+            result_users.append(user)
+            if len(result_users) == contacts_per_request:
+                break
+        return result_users
+
     def create_random_user(self):
         shuffle(self.skills)
         avatar_id = randint(0, len(self.names)-1)
