@@ -15,14 +15,14 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
         initialize: function() {
             this.set_list_height();
             this.collection = new Collection();
-            //this.get_next_page();
         },
 
         get_next_page: function(options) {
             options = options || {};
             this.options = _.extend({
                 search: this.options.search,
-                role: this.options.role
+                role: this.options.role,
+                page: this.options.page
             }, options);
             this.collection.fetch({
                 add: true,
@@ -41,6 +41,7 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
         },
 
         reset: function() {
+            this.collection.reset();
             this.options.page = 0;
             this.$el.html('');
         },
