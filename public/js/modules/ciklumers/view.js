@@ -6,7 +6,7 @@ define(['text!templates/ciklumer.html'], function(ciklumer_tpl) {
         template: _.template(ciklumer_tpl),
 
         initialize: function() {
-            this.model.set({rendered: true}, {silent: true});
+            this.model.set({rendered: true});
         },
 
         render: function() {

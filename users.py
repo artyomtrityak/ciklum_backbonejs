@@ -1,8 +1,14 @@
-import uuid
 from random import choice, shuffle, randint
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, or_
+from sqlalchemy.orm import sessionmaker, relationship
 
-class Users(object):
-    users=dict()
+Engine = create_engine('sqlite:///ciklumers2.db', echo=True)
+Base = declarative_base(Engine)
+Metadata = Base.metadata
+
+class UsersFactory(object):
+    rows_per_request = 20
 
     avatars = [
         'http://level2.ciklum.net/images/contacts/Artem_Trityak_4156.jpg',
@@ -43,37 +49,82 @@ class Users(object):
     skills = ["Python", 'JavaScript', 'Java', 'C++', 'Objective-C', 'C#', 'PHP', 'Erlang']
     positions = ['Developer', 'Team Lead', 'QA', 'Manager', ]
 
-    def generate_users(self, count):
-        users = dict()
-        for i in range(count):
-            uid, data = self.create_random_user()
-            users[uid] = data
-        self.users.update(users)
-        return users
+    def __init__(self):
+        self.session = sessionmaker(bind=Engine)()
 
-    def get_users(self, page_num, contacts_per_request, role, search):
-        start = page_num * contacts_per_request
-        result_users = []
-        for user in self.users.values()[start:]:
-            if role and role != user['position'] and role != 'All':
-                continue
-            if search and search not in user.values() and search not in user['skills']:
-                continue
-            result_users.append(user)
-            if len(result_users) == contacts_per_request:
-                break
-        return result_users
+    def get_users(self, role, search, page):
+        start = self.rows_per_request * page
+        end = start + self.rows_per_request
+        query = self.session.query(User)#.order_by(User.name)
+        if search:
+            query = query.filter(or_(
+                User.name.startswith(search),
+                User.project.startswith(search),
+                User.position.startswith(search),
+                Skills.skill==search
+            ))
+        if role and role != "All":
+            query = query.filter(User.position == role)
+
+        return self.transform_to_dict(query[start:end])
+
+    def transform_to_dict(self, users):
+        return [
+            dict(
+                id=user.id,
+                name=user.name,
+                avatar=user.avatar,
+                project=user.project,
+                position=user.position,
+                skills=[usr_skill.skill for usr_skill in user.skills]
+            )
+            for user in users
+            if user.name is not None
+        ]
+
+    def generate_users(self, count):
+        for i in range(count):
+            self.session.add(self.create_random_user())
+        self.session.commit()
 
     def create_random_user(self):
         shuffle(self.skills)
         avatar_id = randint(0, len(self.names)-1)
-        user_id = str(uuid.uuid4())
-        return user_id, dict(
-            name = self.names[avatar_id],
-            avatar = self.avatars[avatar_id],
-            project = choice(self.projects),
-            position = choice(self.positions),
-            skills = self.skills[:randint(1,4)],
-            id = user_id
+        usr = User(
+            name=self.names[avatar_id],
+            avatar=self.avatars[avatar_id],
+            project=choice(self.projects),
+            position=choice(self.positions),
         )
+        for sk_name in self.skills[:randint(1,4)]:
+            usr.skills.append(Skills(skill=sk_name))
+        return usr
 
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String, index=True)
+    avatar = Column(String)
+    project = Column(String, index=True)
+    position = Column(String, index=True)
+    skills = relationship("Skills", backref="users")
+
+    def __init__(self, name, avatar, project, position):
+        self.name = name
+        self.avatar = avatar
+        self.project = project
+        self.position = position
+
+    def __repr__(self):
+        return "<User(%s, %s, %s) " % (self.name, self.position, self.project)
+
+class Skills(Base):
+    __tablename__ = 'skills'
+    id = Column(Integer, primary_key=True)
+    parent_id = Column(Integer, ForeignKey('users.id'))
+    skill = Column(String)
+
+if __name__ == '__main__':
+    Base.metadata.create_all(Engine)
+    UsersFactory().generate_users(50)

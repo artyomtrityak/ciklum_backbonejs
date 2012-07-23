@@ -2,7 +2,7 @@ import tornado.ioloop
 import tornado.web
 import simplejson
 
-import users
+from users import UsersFactory, User, Skills
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -16,7 +16,10 @@ class CiklumersList(tornado.web.RequestHandler):
         search = self.get_argument('search', None)
         page_num = int(self.get_argument('page', 0))
 
-        result_users = USERS.get_users(page_num, self.count_per_request, role, search)
+        result_users = USERS.get_users(role, search, page_num)
+
+        print result_users
+
         self.write(simplejson.dumps(result_users))
 
 class Ciklumer(tornado.web.RequestHandler):
@@ -33,8 +36,7 @@ class Ciklumer(tornado.web.RequestHandler):
         pass
 
 if __name__ == "__main__":
-    USERS = users.Users()
-    USERS.generate_users(100)
+    USERS = UsersFactory()
 
     application = tornado.web.Application([
         #Just return index page
@@ -43,7 +45,6 @@ if __name__ == "__main__":
         #RESTful backbone app
         (r"/ciklumers", CiklumersList),
         (r"/ciklumers/([0-9]+)", Ciklumer),
-
 
         #Static files processing
         (r"/static/(.*)", tornado.web.StaticFileHandler, {"path": "./public"}),

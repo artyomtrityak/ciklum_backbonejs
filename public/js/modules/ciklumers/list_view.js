@@ -8,6 +8,9 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
             role: ''
         },
 
+        end_reached: false,
+
+        //TODO: manual load more
         events: {
             'scroll': "lazy_loader"
         },
@@ -18,22 +21,34 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
         },
 
         get_next_page: function(options) {
+            if (this.end_reached === true || this.collection.is_loading() === true) {
+                return;
+            }
             options = options || {};
             this.options = _.extend({
                 search: this.options.search,
                 role: this.options.role,
                 page: this.options.page
             }, options);
+            this.collection.set_loading();
             this.collection.fetch({
                 add: true,
+                wait: true,
                 data: this.options,
-                success: _.bind(this.render, this)
+                success:_.bind(this.render, this),
+                error:_.bind(this.error, this)
             });
         },
 
         render: function() {
+            this.collection.remove_loading();
             var ciklumers_part = $('<div />');
-            _.each(this.collection.where({rendered: false}), function(model) {
+            var not_rendered = this.collection.where({rendered: false});
+            if (not_rendered.length === 0) {
+                this.end_reached = true;
+                return;
+            }
+            _.each(not_rendered, function(model) {
                 ciklumers_part.append(new Ciklumer({model: model}).render().$el);
             },this);
             this.$el.append(ciklumers_part);
@@ -41,9 +56,14 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
         },
 
         reset: function() {
+            this.end_reached = false;
             this.collection.reset();
             this.options.page = 0;
             this.$el.html('');
+        },
+
+        error: function() {
+            this.collection.remove_loading();
         },
 
         /**
