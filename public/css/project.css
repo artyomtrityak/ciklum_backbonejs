@@ -8,6 +8,11 @@ body {
 #ciklumers-list-container {
     overflow: auto;
 }
+#ciklumers-list-container-list-load-more {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
 .ciklum-user-list-element {
     margin-bottom: 20px;
 }

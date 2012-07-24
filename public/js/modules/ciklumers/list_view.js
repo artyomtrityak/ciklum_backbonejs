@@ -1,6 +1,7 @@
 define(["./collection", "./view"], function(Collection, Ciklumer) {
     return Backbone.View.extend({
         el: $('#ciklumers-list-container'),
+        list_el: $('#ciklumers-list-container-list'),
 
         options: {
             page: 0,
@@ -10,14 +11,19 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
 
         end_reached: false,
 
-        //TODO: manual load more
         events: {
-            'scroll': "lazy_loader"
+            "scroll": "lazy_loader",
+            "click #ciklumers-list-container-list-load-more > a": "manual_load_more"
         },
 
         initialize: function() {
             this.set_list_height();
             this.collection = new Collection();
+        },
+
+        manual_load_more: function() {
+            this.get_next_page();
+            return false;
         },
 
         get_next_page: function(options) {
@@ -35,8 +41,8 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
                 add: true,
                 wait: true,
                 data: this.options,
-                success:_.bind(this.render, this),
-                error:_.bind(this.error, this)
+                success: _.bind(this.render, this),
+                error: _.bind(this.error, this)
             });
         },
 
@@ -51,7 +57,7 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
             _.each(not_rendered, function(model) {
                 ciklumers_part.append(new Ciklumer({model: model}).render().$el);
             },this);
-            this.$el.append(ciklumers_part);
+            this.list_el.append(ciklumers_part);
             this.options.page++;
         },
 
@@ -59,7 +65,7 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
             this.end_reached = false;
             this.collection.reset();
             this.options.page = 0;
-            this.$el.html('');
+            this.list_el.html('');
         },
 
         error: function() {
