@@ -1,6 +1,6 @@
 from random import choice, shuffle, randint
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, or_
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, or_, Table
 from sqlalchemy.orm import sessionmaker, relationship
 
 Engine = create_engine('sqlite:///ciklumers2.db', echo=True)
@@ -61,10 +61,14 @@ class UsersFactory(object):
                 User.name.startswith(search),
                 User.project.startswith(search),
                 User.position.startswith(search),
-                Skills.skill==search
+                User.skills.any(skill=search)
             ))
         if role and role != "All":
             query = query.filter(User.position == role)
+
+        print "\n\n START"
+        print start
+        print end
 
         return self.transform_to_dict(query[start:end])
 
@@ -100,6 +104,11 @@ class UsersFactory(object):
             usr.skills.append(Skills(skill=sk_name))
         return usr
 
+skills_refs = Table('skills_refs', Base.metadata,
+    Column('user_id', Integer, ForeignKey('users.id')),
+    Column('skill_id', Integer, ForeignKey('skills.id'))
+)
+
 class User(Base):
     __tablename__ = 'users'
 
@@ -108,7 +117,7 @@ class User(Base):
     avatar = Column(String)
     project = Column(String, index=True)
     position = Column(String, index=True)
-    skills = relationship("Skills", backref="users")
+    skills =  relationship('Skills', secondary=skills_refs, backref='users')
 
     def __init__(self, name, avatar, project, position):
         self.name = name
