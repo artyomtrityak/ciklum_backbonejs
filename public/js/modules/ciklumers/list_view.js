@@ -55,7 +55,7 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
                 return;
             }
             _.each(not_rendered, function(model) {
-                ciklumers_part.append(new Ciklumer({model: model}).render().$el);
+                ciklumers_part.append(new Ciklumer({model: model, parent: this}).render().$el);
             },this);
             this.list_el.append(ciklumers_part);
             this.options.page++;

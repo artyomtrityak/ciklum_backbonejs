@@ -5,13 +5,23 @@ define(['text!templates/ciklumer.html'], function(ciklumer_tpl) {
 
         template: _.template(ciklumer_tpl),
 
-        initialize: function() {
+        events: {
+            "click .ciklumer-detail-show": "show_details"
+        },
+
+        initialize: function(options) {
+            this.parent = options.parent;
             this.model.set({rendered: true});
         },
 
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
             return this;
+        },
+
+        show_details: function() {
+            this.parent.trigger("show_details", this.model);
+            return false;
         }
     });
 });

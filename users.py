@@ -65,11 +65,6 @@ class UsersFactory(object):
             ))
         if role and role != "All":
             query = query.filter(User.position == role)
-
-        print "\n\n START"
-        print start
-        print end
-
         return self.transform_to_dict(query[start:end])
 
     def transform_to_dict(self, users):
@@ -80,6 +75,9 @@ class UsersFactory(object):
                 avatar=user.avatar,
                 project=user.project,
                 position=user.position,
+                mobile=user.mobile,
+                email=user.email,
+                city=user.city,
                 skills=[usr_skill.skill for usr_skill in user.skills]
             )
             for user in users
@@ -99,6 +97,9 @@ class UsersFactory(object):
             avatar=self.avatars[avatar_id],
             project=choice(self.projects),
             position=choice(self.positions),
+            mobile="+380506114789",
+            email="art.trityak@gmail.com",
+            city="Odessa"
         )
         for sk_name in self.skills[:randint(1,4)]:
             usr.skills.append(Skills(skill=sk_name))
@@ -116,14 +117,20 @@ class User(Base):
     name = Column(String, index=True)
     avatar = Column(String)
     project = Column(String, index=True)
+    mobile = Column(String, index=True)
+    email = Column(String, index=True)
+    city = Column(String, index=True)
     position = Column(String, index=True)
     skills =  relationship('Skills', secondary=skills_refs, backref='users')
 
-    def __init__(self, name, avatar, project, position):
+    def __init__(self, name, avatar, project, position, mobile, email, city):
         self.name = name
         self.avatar = avatar
         self.project = project
         self.position = position
+        self.mobile = mobile
+        self.email = email
+        self.city = city
 
     def __repr__(self):
         return "<User(%s, %s, %s) " % (self.name, self.position, self.project)
@@ -136,4 +143,4 @@ class Skills(Base):
 
 if __name__ == '__main__':
     Base.metadata.create_all(Engine)
-    UsersFactory().generate_users(50)
+    UsersFactory().generate_users(200)

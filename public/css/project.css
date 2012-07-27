@@ -24,6 +24,10 @@ body {
     height: 65px;
 }
 
+.view-details-table tr td:first-child {
+    width: 100px;
+}
+
 /*Details*/
 .ciklum-user-details-edit-label {
     vertical-align: middle !important;
