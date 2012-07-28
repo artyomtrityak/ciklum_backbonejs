@@ -1,4 +1,6 @@
 define(["./collection", "./view"], function(Collection, Ciklumer) {
+    "use strict";
+
     return Backbone.View.extend({
         el: $('#ciklumers-list-container'),
         list_el: $('#ciklumers-list-container-list'),

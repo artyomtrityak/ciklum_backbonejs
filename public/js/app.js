@@ -1,5 +1,6 @@
 define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/view', 'modules/details/view'],
     function(ciklumers, Navigation, Search, Details) {
+    "use strict";
 
     return Backbone.Router.extend({
         routes: {

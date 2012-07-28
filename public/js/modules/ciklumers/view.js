@@ -1,4 +1,6 @@
 define(['text!templates/ciklumer.html'], function(ciklumer_tpl) {
+    "use strict";
+
     return Backbone.View.extend({
 
         tagName: 'div', //default

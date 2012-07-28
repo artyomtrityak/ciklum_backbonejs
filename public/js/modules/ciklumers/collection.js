@@ -1,4 +1,6 @@
 define(['./model'], function(Model) {
+    "use strict";
+
     return Backbone.Collection.extend({
         url: '/ciklumers',
         model: Model,

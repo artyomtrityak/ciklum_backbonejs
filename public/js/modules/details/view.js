@@ -1,4 +1,5 @@
 define(['text!templates/ciklumer_details.html'], function(details) {
+    "use strict";
 
     return Backbone.View.extend({
         el: $('#ciklum-user-details'),
