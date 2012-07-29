@@ -20,13 +20,14 @@ class CiklumersList(tornado.web.RequestHandler):
 
 class Ciklumer(tornado.web.RequestHandler):
     def get(self):
-        self.write('ok')
+        pass
 
     def post(self):
         pass
 
-    def put(self):
-        pass
+    def put(self, user_id):
+        result = USERS.update_user(user_id, simplejson.loads(self.request.body))
+        self.write(simplejson.dumps(result))
 
     def delete(self):
         pass

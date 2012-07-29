@@ -1,10 +1,54 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<div class="row" id="ciklum-user-details-edit">
+    <!--<div class="alert alert-error">
+        <button class="close" data-dismiss="alert">×</button>
+        <strong>Validation failed!</strong> Please check fields.
+    </div>-->
 
-</body>
-</html>
+    <div class="span2">
+        <a href="#" class="thumbnail"><img src="<%=avatar%>" alt=""></a>
+    </div>
+    <div class="span5">
+        <div>
+            <span class="lead">
+                <input type="text" class="ciklum-user-details-edit-input" data-field="name" value="<%=name%>"></span>
+                <span class="pull-right">
+                    <a class="btn btn-success ciklumer-details-save" href="#">
+                        <i class="icon-ok icon-white"></i> Save
+                    </a>
+
+                    <a class="btn btn-danger ciklumer-details-remove" href="#">
+                        <i class="icon-remove icon-white"></i> Remove
+                    </a>
+                </span>
+        </div>
+        <div style="margin-top: 5px;">
+            <table class="table">
+                <tr>
+                    <td class="ciklum-user-details-edit-label">Project</td>
+                    <td><input type=text value="<%=project%>" data-field="project" class="ciklum-user-details-edit-input"></td>
+                </tr>
+                <tr>
+                    <td class="ciklum-user-details-edit-label">Position</td>
+                    <td><input type=text value="<%=position%>" data-field="position" class="ciklum-user-details-edit-input"></td>
+                </tr>
+                <tr>
+                    <td class="ciklum-user-details-edit-label">Email</td>
+                    <td><input type=text value="<%=email%>" data-field="email" class="ciklum-user-details-edit-input"></td>
+                </tr>
+                <tr>
+                    <td class="ciklum-user-details-edit-label">City</td>
+                    <td><input type=text value="<%=city%>" data-field="city" class="ciklum-user-details-edit-input"></td>
+                </tr>
+                <tr>
+                    <td class="ciklum-user-details-edit-label">Mobile</td>
+                    <td><input type=text value="<%=mobile%>" data-field="mobile" class="ciklum-user-details-edit-input"></td>
+                </tr>
+                <tr>
+                    <td class="ciklum-user-details-edit-label">Skills</td>
+                    <td><input type=text value="<%=skills.join(', ')%>"
+                               data-field="skills" class="ciklum-user-details-edit-input"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

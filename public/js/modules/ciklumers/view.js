@@ -13,7 +13,8 @@ define(['text!templates/ciklumer.html'], function(ciklumer_tpl) {
 
         initialize: function(options) {
             this.parent = options.parent;
-            this.model.set({rendered: true});
+            this.model.set({rendered: true}, {silent: true});
+            this.model.on('change', this.render, this);
         },
 
         render: function() {

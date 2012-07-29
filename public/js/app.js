@@ -16,7 +16,6 @@ define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/vie
             this.navigation = new Navigation();
             this.search = new Search();
             this.details =  new Details();
-
             this.bind();
         },
 

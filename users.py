@@ -55,7 +55,7 @@ class UsersFactory(object):
     def get_users(self, role, search, page):
         start = self.rows_per_request * page
         end = start + self.rows_per_request
-        query = self.session.query(User)#.order_by(User.name)
+        query = self.session.query(User).order_by(User.id.desc())
         if search:
             query = query.filter(or_(
                 User.name.startswith(search),
@@ -66,6 +66,18 @@ class UsersFactory(object):
         if role and role != "All":
             query = query.filter(User.position == role)
         return self.transform_to_dict(query[start:end])
+
+    def update_user(self, user_id, data):
+        result_user = self.session.query(User).filter(User.id == user_id).one()
+        result_user.name = data['name']
+        result_user.project = data['project']
+        result_user.mobile = data['mobile']
+        result_user.city = data['city']
+        result_user.email = data['email']
+        result_user.position = data['position']
+        result_user.skills = [Skills(skill=sk_name) for sk_name in data['skills']]
+        self.session.commit()
+        return self.transform_to_dict([result_user])[0]
 
     def transform_to_dict(self, users):
         return [
