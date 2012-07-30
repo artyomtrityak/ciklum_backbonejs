@@ -29,8 +29,9 @@ class Ciklumer(tornado.web.RequestHandler):
         result = USERS.update_user(user_id, simplejson.loads(self.request.body))
         self.write(simplejson.dumps(result))
 
-    def delete(self):
-        pass
+    def delete(self, user_id):
+        USERS.delete_user(user_id)
+        self.write("1")
 
 if __name__ == "__main__":
     USERS = UsersFactory()

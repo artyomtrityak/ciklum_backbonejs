@@ -9,7 +9,8 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
 
         events: {
             "click .ciklumer-details-edit": "render_edit",
-            "click .ciklumer-details-save": "save"
+            "click .ciklumer-details-save": "save_user",
+            "click .ciklumer-details-remove": "delete_user"
         },
 
         initialize: function() {
@@ -26,7 +27,7 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
             return false;
         },
 
-        save: function() {
+        save_user: function() {
             var new_fields = {};
             this.$el.find('.ciklum-user-details-edit-input').each(_.bind(function(index, el) {
                 var field = $(el).data('field');
@@ -45,6 +46,14 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
                 }, this)
             });
             return false;
+        },
+
+        delete_user: function() {
+            this.model.destroy({wait:true,
+                success: _.bind(function() {
+                    this.$el.html('');
+                }, this)
+            });
         }
     });
 });

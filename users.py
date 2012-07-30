@@ -79,6 +79,10 @@ class UsersFactory(object):
         self.session.commit()
         return self.transform_to_dict([result_user])[0]
 
+    def delete_user(self, user_id):
+        self.session.query(User).filter(User.id == user_id).delete()
+        self.session.commit()
+
     def transform_to_dict(self, users):
         return [
             dict(

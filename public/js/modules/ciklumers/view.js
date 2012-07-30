@@ -15,6 +15,7 @@ define(['text!templates/ciklumer.html'], function(ciklumer_tpl) {
             this.parent = options.parent;
             this.model.set({rendered: true}, {silent: true});
             this.model.on('change', this.render, this);
+            this.model.on('destroy', this.remove, this);
         },
 
         render: function() {
