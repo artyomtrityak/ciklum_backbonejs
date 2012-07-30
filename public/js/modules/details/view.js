@@ -27,17 +27,22 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
         },
 
         save: function() {
+            var new_fields = {};
             this.$el.find('.ciklum-user-details-edit-input').each(_.bind(function(index, el) {
                 var field = $(el).data('field');
                 var val = field == 'skills' ? $(el).val().split(', ') : $(el).val();
-                this.model.set(field, val);
+                new_fields[field] = val;
             }, this));
-            this.model.save({wait:true}, {
+            this.model.set(new_fields, {silent: true});
+            this.model.save({}, {
+                wait:true,
                 success: _.bind(function() {
                     this.render(this.model);
+                    this.model.trigger('change');
                 }, this),
                 error: _.bind(function() {
                     this.trigger('error');
+                    this.model.set(this.model.previousAttributes());
                 }, this)
             });
             return false;
