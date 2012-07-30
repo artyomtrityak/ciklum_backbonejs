@@ -90,7 +90,7 @@ class UsersFactory(object):
                 mobile=user.mobile,
                 email=user.email,
                 city=user.city,
-                skills=[usr_skill.skill for usr_skill in user.skills]
+                skills=[usr_skill.skill for usr_skill in sorted(user.skills, key=lambda skill: skill.skill)]
             )
             for user in users
             if user.name is not None

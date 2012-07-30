@@ -30,7 +30,7 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
             var new_fields = {};
             this.$el.find('.ciklum-user-details-edit-input').each(_.bind(function(index, el) {
                 var field = $(el).data('field');
-                var val = field == 'skills' ? $(el).val().split(', ') : $(el).val();
+                var val = field == 'skills' ? $(el).val().split(',') : $(el).val();
                 new_fields[field] = val;
             }, this));
             this.model.set(new_fields, {silent: true});
@@ -38,7 +38,6 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
                 wait:true,
                 success: _.bind(function() {
                     this.render(this.model);
-                    this.model.trigger('change');
                 }, this),
                 error: _.bind(function() {
                     this.trigger('error');
