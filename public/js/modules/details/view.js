@@ -8,7 +8,7 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
         template_edit: _.template(details_edit),
 
         events: {
-            "click .ciklumer-details-edit": "render_edit",
+            "click .ciklumer-details-edit": "edit_user",
             "click .ciklumer-details-save": "save_user",
             "click .ciklumer-details-remove": "delete_user"
         },
@@ -22,9 +22,14 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
             return this;
         },
 
-        render_edit: function() {
+        render_edit: function(model) {
+            this.model = model;
             this.$el.html(this.template_edit(this.model.toJSON()));
             return false;
+        },
+
+        edit_user: function() {
+            this.render_edit(this.model);
         },
 
         save_user: function() {

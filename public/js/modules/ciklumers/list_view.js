@@ -48,7 +48,8 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
             });
         },
 
-        render: function() {
+        render: function(options) {
+            options = _.extend({add_new: false}, options);
             this.collection.remove_loading();
             var ciklumers_part = $('<div />');
             var not_rendered = this.collection.where({rendered: false});
@@ -59,8 +60,12 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
             _.each(not_rendered, function(model) {
                 ciklumers_part.append(new Ciklumer({model: model, parent: this}).render().$el);
             },this);
-            this.list_el.append(ciklumers_part);
-            this.options.page++;
+            if (options.add_new === true) {
+                this.list_el.prepend(ciklumers_part);
+            } else {
+                this.list_el.append(ciklumers_part);
+                this.options.page++;
+            }
         },
 
         reset: function() {
@@ -72,6 +77,11 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
 
         error: function() {
             this.collection.remove_loading();
+        },
+
+        add_user: function(model) {
+            this.collection.add(model);
+            this.render({add_new:true});
         },
 
         /**

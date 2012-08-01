@@ -1,5 +1,6 @@
-define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/view', 'modules/details/view'],
-    function(ciklumers, Navigation, Search, Details) {
+define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/view', 'modules/details/view',
+    'modules/new_user'],
+    function(ciklumers, Navigation, Search, Details, NewUser) {
     "use strict";
 
     return Backbone.Router.extend({
@@ -16,12 +17,15 @@ define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/vie
             this.navigation = new Navigation();
             this.search = new Search();
             this.details =  new Details();
+            this.new_user = new NewUser();
             this.bind();
         },
 
         bind: function() {
             this.search.on('search', this.filter_search, this);
             this.ciklumers.on('show_details', this.show_details, this);
+            this.new_user.on('add_new', this.show_new_details, this);
+            this.new_user.on('add_new_ciklumer', this.add_new_ciklumer, this);
         },
 
         filter_role: function(role) {
@@ -51,6 +55,14 @@ define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/vie
         show_details: function(model) {
             console.log(model);
             this.details.render(model);
+        },
+
+        show_new_details: function(model) {
+            this.details.render_edit(model);
+        },
+
+        add_new_ciklumer: function(model) {
+            this.ciklumers.add_user(model);
         }
     });
 });

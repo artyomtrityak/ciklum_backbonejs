@@ -69,6 +69,7 @@ class UsersFactory(object):
 
     def update_user(self, user_id, data):
         result_user = self.session.query(User).filter(User.id == user_id).one()
+        User()
         result_user.name = data['name']
         result_user.project = data['project']
         result_user.mobile = data['mobile']
@@ -79,11 +80,30 @@ class UsersFactory(object):
         self.session.commit()
         return self.transform_to_dict([result_user])[0]
 
+    def new_user(self, data):
+        usr = User(
+            name=data['name'],
+            avatar=data['avatar'],
+            project=data['project'],
+            position=data['position'],
+            mobile=data['mobile'],
+            email=data['email'],
+            city=data['city']
+        )
+        #for sk_name in data['skills']:
+        #    usr.skills.append(Skills(skill=sk_name))
+        self.session.add(usr)
+        self.session.commit()
+        return self.transform_to_dict([usr])[0]
+
     def delete_user(self, user_id):
         self.session.query(User).filter(User.id == user_id).delete()
         self.session.commit()
 
     def transform_to_dict(self, users):
+
+        print users.skills
+
         return [
             dict(
                 id=user.id,
