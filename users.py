@@ -1,9 +1,9 @@
 from random import choice, shuffle, randint
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, or_, Table
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy.orm import sessionmaker, relationship, backref
 
-Engine = create_engine('sqlite:///ciklumers2.db', echo=True)
+Engine = create_engine('sqlite:///ciklumers.db', echo=True)
 Base = declarative_base(Engine)
 Metadata = Base.metadata
 
@@ -96,7 +96,9 @@ class UsersFactory(object):
         return self.transform_to_dict([usr])[0]
 
     def delete_user(self, user_id):
-        self.session.query(User).filter(User.id == user_id).delete()
+        usr = self.session.query(User).filter(User.id == user_id)
+        usr.one().skills = []
+        usr.delete()
         self.session.commit()
 
     def transform_to_dict(self, users):
@@ -170,7 +172,6 @@ class User(Base):
 class Skills(Base):
     __tablename__ = 'skills'
     id = Column(Integer, primary_key=True)
-    parent_id = Column(Integer, ForeignKey('users.id'))
     skill = Column(String)
 
 if __name__ == '__main__':
