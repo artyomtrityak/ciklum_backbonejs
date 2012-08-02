@@ -4,12 +4,7 @@ define(['./model'], function(Model) {
     return Backbone.Collection.extend({
         url: '/ciklumers',
         model: Model,
-
         loading: false,
-
-        initialize: function() {
-            console.log('init collection');
-        },
 
         is_loading: function() {
             return this.loading;

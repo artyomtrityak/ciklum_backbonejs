@@ -1,4 +1,4 @@
-define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details_edit.html'],
+define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details_edit.html', 'lib/bootstrap'],
     function(details, details_edit) {
     "use strict";
 
@@ -10,7 +10,8 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
         events: {
             "click .ciklumer-details-edit": "edit_user",
             "click .ciklumer-details-save": "save_user",
-            "click .ciklumer-details-remove": "delete_user"
+            "click .ciklumer-details-remove": "delete_user",
+            "error": "show_error"
         },
 
         initialize: function() {
@@ -36,7 +37,14 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
             var new_fields = {};
             this.$el.find('.ciklum-user-details-edit-input').each(_.bind(function(index, el) {
                 var field = $(el).data('field');
-                var val = field == 'skills' ? $(el).val().split(',') : $(el).val();
+                if (field === 'skills') {
+                    var val = $(el).val().split(',');
+                    if (val.length === 1 && val[0] === '') {
+                        val = [];
+                    }
+                } else {
+                    val = $(el).val();
+                }
                 new_fields[field] = val;
             }, this));
             this.model.set(new_fields, {silent: true});
@@ -45,8 +53,8 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
                 success: _.bind(function() {
                     this.render(this.model);
                 }, this),
-                error: _.bind(function() {
-                    this.trigger('error');
+                error: _.bind(function(model, msg) {
+                    this.show_error(msg);
                     this.model.set(this.model.previousAttributes());
                 }, this)
             });
@@ -59,6 +67,12 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
                     this.$el.html('');
                 }, this)
             });
+        },
+
+        show_error: function(msg) {
+            var error_box = this.$el.find('#ciklumer-error');
+            error_box.alert().show();
+            error_box.find('.ciklumer-error-msg').html(msg);
         }
     });
 });

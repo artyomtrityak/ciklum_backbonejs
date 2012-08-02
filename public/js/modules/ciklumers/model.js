@@ -15,6 +15,15 @@ define(function() {
             skype: 'art.trityak',
             skills: [],
             rendered: false
+        },
+
+        validate: function(fields) {
+            if ($.trim(fields.name) === '') {
+                return "I do now know you, please fill up name.";
+            }
+            if (!fields.skills.length) {
+                return "User does not have skills. Go away!";
+            }
         }
     });
 });

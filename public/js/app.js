@@ -53,7 +53,6 @@ define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/vie
         },
 
         show_details: function(model) {
-            console.log(model);
             this.details.render(model);
         },
 
