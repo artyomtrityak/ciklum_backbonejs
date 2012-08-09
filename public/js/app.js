@@ -1,6 +1,6 @@
 define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/view', 'modules/details/view',
     'modules/new_user'],
-    function(ciklumers, Navigation, Search, Details, NewUser) {
+    function(Сiklumers, Navigation, Search, Details, NewUser) {
     "use strict";
 
     return Backbone.Router.extend({
@@ -13,7 +13,7 @@ define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/vie
         },
 
         initialize: function() {
-            this.ciklumers = new ciklumers();
+            this.ciklumers = new Сiklumers();
             this.navigation = new Navigation();
             this.search = new Search();
             this.details =  new Details();
