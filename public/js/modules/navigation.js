@@ -5,10 +5,9 @@ define(function() {
         el: $('#ciklumers-menu'),
 
         activate: function(name) {
-            name = name.replace(/ /g, '');
-            name = name.toLowerCase();
-            this.$el.find('.nav > li').removeClass('active');
-            this.$el.find('.nav > .nav-' + name).addClass('active');
+            name = name.replace(/ /g, '').toLowerCase();
+            this.$('.nav > li').removeClass('active');
+            this.$('.nav > .nav-' + name).addClass('active');
         }
     });
 });

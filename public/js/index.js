@@ -20,7 +20,7 @@ require.config({
 
 requirejs(['app'], function(App) {
     $(function() {
-        var app = new App();
+        new App();
         Backbone.history.start();
     });
 });

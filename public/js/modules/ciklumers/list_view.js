@@ -32,13 +32,13 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
             if (this.end_reached === true || this.collection.is_loading() === true) {
                 return;
             }
-            options = options || {};
+            options || (options = {});
             this.options = _.extend({
                 search: this.options.search,
                 role: this.options.role,
                 page: this.options.page
             }, options);
-            this.collection.set_loading();
+            this.collection.set_loading(true);
             this.collection.fetch({
                 add: true,
                 wait: true,
@@ -50,7 +50,7 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
 
         render: function(options) {
             options = _.extend({add_new: false}, options);
-            this.collection.remove_loading();
+            this.collection.set_loading(false);
             var ciklumers_part = $('<div />');
             var not_rendered = this.collection.where({rendered: false});
             if (not_rendered.length === 0) {
@@ -76,7 +76,7 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
         },
 
         error: function() {
-            this.collection.remove_loading();
+            this.collection.set_loading(false);
         },
 
         add_user: function(model) {

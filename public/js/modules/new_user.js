@@ -15,6 +15,7 @@ define(['modules/ciklumers/model'], function(Model) {
         },
 
         add_new_ciklumer: function(model) {
+            //TODO: change event names
             this.trigger('add_new_ciklumer', model);
         }
     });

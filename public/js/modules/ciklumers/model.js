@@ -19,7 +19,7 @@ define(function() {
 
         validate: function(fields) {
             if ($.trim(fields.name) === '') {
-                return "I do now know you, please fill up name.";
+                return "Please fill up name.";
             }
             if (!fields.skills.length) {
                 return "User does not have skills. Go away!";

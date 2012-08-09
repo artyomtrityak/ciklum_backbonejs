@@ -31,11 +31,12 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
 
         edit_user: function() {
             this.render_edit(this.model);
+            return false;
         },
 
         save_user: function() {
             var new_fields = {};
-            this.$el.find('.ciklum-user-details-edit-input').each(_.bind(function(index, el) {
+            this.$('.ciklum-user-details-edit-input').each(_.bind(function(index, el) {
                 var field = $(el).data('field');
                 if (field === 'skills') {
                     var val = $(el).val().split(',');
@@ -70,7 +71,7 @@ define(['text!templates/ciklumer_details.html', 'text!templates/ciklumer_details
         },
 
         show_error: function(msg) {
-            var error_box = this.$el.find('#ciklumer-error');
+            var error_box = this.$('#ciklumer-error');
             error_box.alert().show();
             error_box.find('.ciklumer-error-msg').html(msg);
         }

@@ -22,7 +22,8 @@ define(['./model'], function(Model) {
                 this.timer_search = false;
                 var search_val = this.$el.val();
                 if (this.model.get('search') != search_val) {
-                    this.model.set({search: search_val}, {silent: true});
+                    this.model.set({search: search_val});
+                    //TODO: listen change event
                     this.trigger('search', search_val);
                 }
             }, this), 500);
