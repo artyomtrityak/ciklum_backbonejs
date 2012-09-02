@@ -6,12 +6,13 @@ from users import UsersFactory, User, Skills
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
+        #yeah, i know
         self.write(open("index.html").read())
 
 class Ciklumer(tornado.web.RequestHandler):
     def get(self):
-        role = self.get_argument('role', None)
-        search = self.get_argument('search', None)
+        role = self.get_argument('role')
+        search = self.get_argument('search')
         page_num = int(self.get_argument('page', 0))
         result_users = USERS.get_users(role, search, page_num)
         self.write(simplejson.dumps(result_users))
