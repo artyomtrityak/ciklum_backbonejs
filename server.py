@@ -11,8 +11,8 @@ class MainHandler(tornado.web.RequestHandler):
 
 class Ciklumer(tornado.web.RequestHandler):
     def get(self):
-        role = self.get_argument('role')
-        search = self.get_argument('search')
+        role = self.get_argument('role', None)
+        search = self.get_argument('search', None)
         page_num = int(self.get_argument('page', 0))
         result_users = USERS.get_users(role, search, page_num)
         self.write(simplejson.dumps(result_users))
