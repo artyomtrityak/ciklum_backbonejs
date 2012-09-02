@@ -1,8 +1,8 @@
-ciklum_backbonejs
-=================
-
-* run python users.py
-* run python server.py
+Simple Backbone.js application for Ciklum Speakers Corner
+===============
+How to start
+* python users.py
+* python server.py
 * enjoy
 
 OPTIMIZATION
