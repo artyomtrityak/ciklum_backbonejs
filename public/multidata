@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "topic": "Hello",
+        "type": "article"
+    },
+
+    {
+        "id": 2,
+        "topic": "New article",
+        "type": "article"
+    },
+
+    {
+        "id": 1,
+        "username": "Vladimir",
+        "type": "user",
+        "age": 55
+    },
+    {
+        "id": 5,
+        "username": "Artyom",
+        "type": "user",
+        "age": 56
+    }
+]

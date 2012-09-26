@@ -22,5 +22,12 @@ requirejs(['app'], function(App) {
     $(function() {
         new App();
         Backbone.history.start();
+
+
+        //EXAMPLES
+        requirejs(['modules/examples/hierarchy_classes'], function() {
+
+        });
+
     });
 });

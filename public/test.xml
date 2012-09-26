@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mmfd version="2.0">
+    <channel>
+        <title>www.bt.dk</title>
+        <link>http://m.bt.dk</link>
+        <description></description>
+        <language>da</language>
+        <copyright>Berlingske Media A/S 2012</copyright>
+        <category>www.bt.dk &gt; Diverse &gt; Mest læste 3 timer</category>
+        <fields></fields>
+        <item>
+            <title>TV2 skjulte sandheden om Mette </title>
+            <link>http://www.bt.dk/danmark/tv2-skjulte-sandheden-om-mette</link>
+            <description></description>
+            <guid isPermaLink="false">22613147</guid>
+            <pubDate>2012-09-26T06:32:00</pubDate>
+            <updated>2012-09-26T11:09:41</updated>
+            <category>Danmark</category>
+            <content_type>news_article</content_type>
+            <author> <item> <name>Morten Mærsk</name>
+                <email>mtm@bt.dk</email>
+            </item>
+                <item> <name>Uffe Jørgensen, mtm@bt.dk</name>
+                    <email></email>
+                </item>
+            </author>
+            <fields> <field keys="p_tag" label="191131" format="string">Black</field>
+                <field keys="p_tag" label="207204" format="string">BT Special</field>
+                <field keys="p_tag" label="191176" format="string">3</field>
+            </fields>
+            <enclosure type="image/jpeg" url="http://a.bimg.dk/node-images/635/5/320x180-c/5635752-skjulte-sandheden-om-mette---1.jpg" length="22014" />
+        </item>
+        <item>
+            <title>Derfor koster din ketchup kassen</title>
+            <link>http://www.bt.dk/danmark/derfor-koster-din-ketchup-kassen</link>
+            <description></description>
+            <guid isPermaLink="false">22620001</guid>
+            <pubDate>2012-09-26T08:20:00</pubDate>
+            <updated>2012-09-26T09:31:21</updated>
+            <category>Danmark</category>
+            <content_type>news_article</content_type>
+            <author> <item> <name>Thorkil Jacobsen</name>
+                <email>thja@berlingske.dk</email>
+            </item>
+            </author>
+            <fields> <field keys="p_tag" label="191151" format="string">1</field>
+                <field keys="p_tag" label="191175" format="string">2</field>
+            </fields>
+            <enclosure type="image/jpeg" url="http://a.bimg.dk/node-images/636/5/320x180-c/5636870-ketchup.jpg" length="13905" />
+        </item>
+
+    </channel>
+
+</mmfd>

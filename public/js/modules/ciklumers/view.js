@@ -1,11 +1,11 @@
-define(['text!templates/ciklumer.html'], function(ciklumer_tpl) {
+define(['text!templates/ciklumer.html', 'modules/examples/templates_cache'], function(ciklumer_tpl, TCacher) {
     "use strict";
 
     return Backbone.View.extend({
 
         tagName: 'div', //default
 
-        template: _.template(ciklumer_tpl),
+        template: TCacher('ciklumer_short', ciklumer_tpl),
 
         events: {
             "click .ciklumer-detail-show": "show_details"
