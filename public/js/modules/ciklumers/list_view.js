@@ -40,6 +40,8 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
         render: function(options) {
             options = _.extend({add_new: false}, options);
             this.collection.set_loading(false);
+
+            /*Insert cached element once*/
             var ciklumers_part = $('<div />');
             var not_rendered = this.collection.where({rendered: false});
             if (not_rendered.length === 0) {
@@ -49,6 +51,7 @@ define(["./collection", "./view"], function(Collection, Ciklumer) {
             _.each(not_rendered, function(model) {
                 ciklumers_part.append(new Ciklumer({model: model, parent: this}).render().$el);
             },this);
+
             if (options.add_new === true) {
                 this.list_el.prepend(ciklumers_part);
             } else {

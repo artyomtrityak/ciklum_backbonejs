@@ -1,4 +1,5 @@
 define(['./models_mocks'], function(ModelsFactory) {
+    "use strict";
 
     var methodMap = {
         'create': 'POST',

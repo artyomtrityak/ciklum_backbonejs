@@ -1,4 +1,5 @@
 define(['./models_mocks'], function(ModelsFactory) {
+    "use strict";
 
     /*Example 1*/
     var Basic = Backbone.View.extend({

@@ -5,6 +5,7 @@ define(['text!templates/ciklumer.html', 'modules/examples/templates_cache'], fun
 
         tagName: 'div', //default
 
+        /*Useful only if more than one view use same template*/
         template: TCacher('ciklumer_short', ciklumer_tpl),
 
         events: {

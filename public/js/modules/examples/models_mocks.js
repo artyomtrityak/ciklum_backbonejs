@@ -1,4 +1,6 @@
 define(function() {
+    "use strict";
+
     var BasicModel = Backbone.Model.extend({
         idAttribute: "id" //default, just for example
     });

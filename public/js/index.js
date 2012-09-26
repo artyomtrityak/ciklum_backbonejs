@@ -23,11 +23,7 @@ requirejs(['app'], function(App) {
         new App();
         Backbone.history.start();
 
-
         //EXAMPLES
-        requirejs(['modules/examples/hierarchy_classes', 'modules/examples/sync_override'], function() {
-
-        });
-
+        requirejs(['examples']);
     });
 });
