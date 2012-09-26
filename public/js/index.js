@@ -25,7 +25,7 @@ requirejs(['app'], function(App) {
 
 
         //EXAMPLES
-        requirejs(['modules/examples/hierarchy_classes'], function() {
+        requirejs(['modules/examples/hierarchy_classes', 'modules/examples/sync_override'], function() {
 
         });
 

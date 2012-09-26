@@ -7,7 +7,7 @@ define(['./models_mocks'], function(ModelsFactory) {
         }
     });
     var Extended = Basic.extend({
-        arg: 1
+        arg: 'child var'
     });
     var basic_test = new Extended;
 
