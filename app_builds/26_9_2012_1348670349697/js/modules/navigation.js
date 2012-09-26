@@ -1,0 +1,1 @@
+define([],function(){return Backbone.View.extend({el:$("#ciklumers-menu"),activate:function(e){e=e.replace(/ /g,"").toLowerCase(),this.$(".nav > li").removeClass("active"),this.$(".nav > .nav-"+e).addClass("active")}})})

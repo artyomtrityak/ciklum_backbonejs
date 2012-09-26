@@ -1,0 +1,51 @@
+<div class="row" id="ciklum-user-details-view">
+    <div class="span2">
+        <a href="#" class="thumbnail"><img src="<%=avatar%>" alt=""></a>
+    </div>
+    <div class="span5">
+        <div>
+            <span class="lead"><%=name%></span>
+            <span class="pull-right">
+                <a class="btn btn-primary ciklumer-details-edit" href="#edit-user">
+                    <i class="icon-pencil icon-white"></i> Edit
+                </a>
+
+                <a class="btn btn-danger ciklumer-details-remove" href="#remove-user">
+                    <i class="icon-remove icon-white"></i> Remove
+                </a>
+            </span>
+        </div>
+        <div style="margin-top: 5px;">
+            <table class="table view-details-table">
+                <tr>
+                    <td>Project</td>
+                    <td><a href="#project/<%=project%>"><%=project%></a></td>
+                </tr>
+                <tr>
+                    <td>Position</td>
+                    <td><%=position%></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><%=email%></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td><%=city%></td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td><%=mobile%></td>
+                </tr>
+                <tr>
+                    <td>Skills</td>
+                    <td>
+                        <% _.each(skills, function(skill) {%>
+                            <a href="#skill/<%=skill%>"><span class="label label-info"><%=skill%></span></a>
+                        <% }); %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

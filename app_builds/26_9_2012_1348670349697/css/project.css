@@ -1,0 +1,50 @@
+
+body {
+    padding-top: 60px; 
+}
+#ciklumers-list-container {
+    overflow: auto;
+}
+#ciklumers-list-container-list-load-more {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+.ciklum-user-list-element {
+    margin-bottom: 20px;
+}
+.ciklum-user-list-element-name {
+    font-size: 20px;
+    margin-bottom: 10px !important;
+}
+.ciklum-user-list-element-avatar {
+    height: 65px;
+}
+.view-details-table tr td:first-child {
+    width: 100px;
+}
+.ciklum-user-details-edit-label {
+    vertical-align: middle !important;
+}
+.ciklum-user-details-edit-input {
+    margin-bottom: 0 !important;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-button:vertical {
+    display:none;
+}
+::-webkit-scrollbar-button:vertical:start:increment,
+::-webkit-scrollbar-button:vertical:end:decrement {
+    display: none;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #cecece;
+    background-color: #cecece;
+}

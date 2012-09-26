@@ -6,6 +6,6 @@ How to start
 * enjoy
 
 OPTIMIZATION
-* install node.js
+* install node.js ("sudo apt-get install nodejs" for ubuntu)
 * cd public/js
-* run node r.js -o name=index out=index-optimized.js mainConfigFile=config-optimizer.js
+* node r.js -o mainConfigFile=config-optimizer.js

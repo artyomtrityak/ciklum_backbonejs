@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <users>
+        <user>
+            <id>11</id>
+            <username>Konstantin</username>
+            <type>user</type>
+        </user>
+        <user>
+            <id>12</id>
+            <username>Alex</username>
+            <type>user</type>
+        </user>
+    </users>
+
+    <articles>
+        <article>
+            <id>13</id>
+            <topic>Topic data</topic>
+            <type>article</type>
+        </article>
+        <article>
+            <id>15</id>
+            <topic>Topic data2</topic>
+            <type>article</type>
+        </article>
+    </articles>
+
+</root>

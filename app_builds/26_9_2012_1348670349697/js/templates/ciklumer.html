@@ -1,0 +1,18 @@
+<div class="row ciklum-user-list-element">
+    <div class="span1">
+        <a href="#user-details/<%=id%>" class="ciklumer-detail-show">
+            <img src="<%=avatar%>" alt="" class="ciklum-user-list-element-avatar">
+        </a>
+    </div>
+    <div class="span4" style="margin-left:10px">
+        <div class="load ciklum-user-list-element-name">
+            <a href="#user-details/<%=id%>" class="ciklumer-detail-show"><%=name%></a>
+        </div>
+        <div><%=position%> at <a href="#project/<%=project%>"><%=project%></a></div>
+        <div>
+            <% _.each(skills, function(skill) {%>
+                <a href="#skill/<%=skill%>"><span class="label label-info"><%=skill%></span></a>
+            <% }); %>
+        </div>
+    </div>
+</div>

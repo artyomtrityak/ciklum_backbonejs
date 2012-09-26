@@ -1,0 +1,1 @@
+define(["helpers/events"],function(e){console.log("Events usage 2"),console.log(e)})

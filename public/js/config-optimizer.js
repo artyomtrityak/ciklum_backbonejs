@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: '.',
+    baseUrl: 'js/',
     mainConfigFile: './index.js',
     paths: {
         'text': 'lib/text',
@@ -11,5 +11,8 @@ require.config({
         'backbone': ['underscore', 'jquery'],
         'lib/bootstrap': ['jquery'],
         'app': ['backbone']
-    }
+    },
+    dir: '../../app_builds/' + new Date().getDate() + "_" + (new Date().getMonth()-0+1) + "_" + new Date().getFullYear() + "_" + new Date().getTime(),
+    appDir: "../",
+    modules: [{name: "index"}]
 });

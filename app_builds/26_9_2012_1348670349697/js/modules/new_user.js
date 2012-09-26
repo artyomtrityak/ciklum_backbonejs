@@ -1,0 +1,1 @@
+define(["modules/ciklumers/model"],function(e){return Backbone.View.extend({el:$("#ciklumers-add-new"),events:{click:"add_new"},add_new:function(){var t=new e;t.on("change:id",this.add_new_ciklumer,this),this.trigger("add_new",t)},add_new_ciklumer:function(e){this.trigger("add_new_ciklumer",e)}})})

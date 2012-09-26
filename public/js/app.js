@@ -1,5 +1,4 @@
-define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/view', 'modules/details/view',
-    'modules/new_user'],
+define(['modules/ciklumers/list_view', 'modules/navigation', 'modules/search/view', 'modules/details/view', 'modules/new_user'],
     function(Ciklumers, Navigation, Search, Details, NewUser) {
     "use strict";
 

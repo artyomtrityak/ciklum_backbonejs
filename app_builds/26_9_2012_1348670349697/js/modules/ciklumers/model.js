@@ -1,0 +1,1 @@
+define([],function(){return Backbone.Model.extend({urlRoot:"/ciklumers",defaults:{name:"",avatar:"/static/img/140x120.gif",project:"",mobile:"",city:"",position:"",email:"",skype:"art.trityak",skills:[],rendered:!1},validate:function(e){if($.trim(e.name)==="")return"Please fill up name.";if(!e.skills.length)return"User does not have skills. Go away!"}})})

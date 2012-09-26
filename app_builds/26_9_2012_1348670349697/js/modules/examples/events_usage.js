@@ -1,0 +1,1 @@
+define(["helpers/events"],function(e){e.app.on("reset",function(){console.log("reset")}),e.app.trigger("reset"),e.register("test"),e.ext.test.on("eventname",function(e){console.log("got event with attr: "+e)}),e.ext.test.trigger("eventname","some")})
