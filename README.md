@@ -3,7 +3,7 @@ Simple Backbone.js application for Ciklum Speakers Corner
 How to start
 * python users.py
 * python server.py
-* enjoy
+* :shipit:
 
 OPTIMIZATION
 * install node.js ("sudo apt-get install nodejs" for ubuntu)
